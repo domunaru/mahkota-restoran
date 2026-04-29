@@ -1,0 +1,1972 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restoran Mahkota 皇冠餐厅 — Chinese Food Legendaris Yogyakarta Sejak 1937</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Sans:wght@300;400;500;600;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --imperial-red: #8B0000;
+            --crimson: #C41E3A;
+            --gold: #D4AF37;
+            --pale-gold: #F4E4BC;
+            --antique-gold: #C9A84C;
+            --cream: #FFF8E7;
+            --rice-paper: #FAF6F0;
+            --ink-black: #1a1a1a;
+            --charcoal: #2c2c2c;
+            --jade: #2E8B57;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            background-color: var(--rice-paper);
+            color: var(--ink-black);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--cream); }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(var(--gold), var(--imperial-red)); border-radius: 5px; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        @keyframes reveal-up {
+            from { opacity: 0; transform: translateY(60px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes rotate-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes swing-lantern {
+            0%, 100% { transform: rotate(-8deg); }
+            50% { transform: rotate(8deg); }
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(212,175,55,0.3); }
+            50% { box-shadow: 0 0 40px rgba(212,175,55,0.6); }
+        }
+        @keyframes smoke {
+            0% { opacity: 0; transform: translateY(0) scale(1); }
+            50% { opacity: 0.6; }
+            100% { opacity: 0; transform: translateY(-100px) scale(2); }
+        }
+        @keyframes scale-in {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .pattern-bg {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .chinese-knot {
+            position: fixed;
+            font-size: 60px;
+            opacity: 0.08;
+            color: var(--imperial-red);
+            z-index: 1;
+            pointer-events: none;
+            animation: rotate-slow 60s linear infinite;
+        }
+        .knot-1 { top: 15%; left: 3%; }
+        .knot-2 { bottom: 20%; right: 3%; animation-direction: reverse; }
+
+        .lantern-deco {
+            position: fixed;
+            font-size: 50px;
+            z-index: 999;
+            pointer-events: none;
+            filter: drop-shadow(0 0 10px rgba(196,30,58,0.5));
+            animation: swing-lantern 4s ease-in-out infinite;
+        }
+        .lantern-left { top: 120px; left: 25px; }
+        .lantern-right { top: 120px; right: 25px; animation-delay: 2s; }
+
+        /* TOP BAR */
+        .top-bar {
+            background: linear-gradient(90deg, var(--imperial-red), var(--crimson), var(--imperial-red));
+            padding: 8px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1001;
+            border-bottom: 2px solid var(--gold);
+        }
+        .top-bar-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            font-size: 13px;
+            color: var(--pale-gold);
+        }
+        .top-bar-left span { margin-right: 25px; }
+        .top-bar-left i { color: var(--gold); margin-right: 6px; }
+        .top-bar-right a {
+            color: var(--pale-gold);
+            margin-left: 18px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        .top-bar-right a:hover { color: var(--gold); transform: translateY(-2px); display: inline-block; }
+
+        /* NAVIGATION */
+        nav {
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 0;
+            position: fixed;
+            width: 100%;
+            top: 38px;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212,175,55,0.2);
+            transition: all 0.4s;
+        }
+        nav.scrolled {
+            top: 0;
+            background: rgba(26, 26, 26, 0.98);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+        }
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+        }
+        .logo-group { display: flex; align-items: center; gap: 15px; }
+        .logo-icon {
+            width: 50px; height: 50px;
+            background: linear-gradient(135deg, var(--gold), var(--antique-gold));
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 24px;
+            color: var(--imperial-red);
+            font-weight: 900;
+            border: 3px solid var(--pale-gold);
+            box-shadow: 0 0 20px rgba(212,175,55,0.3);
+        }
+        .logo-text h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 26px;
+            color: var(--gold);
+            letter-spacing: 4px;
+            line-height: 1.2;
+        }
+        .logo-text span {
+            font-family: 'Noto Serif SC', serif;
+            color: var(--pale-gold);
+            font-size: 14px;
+            letter-spacing: 6px;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+        }
+        .nav-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: 1px;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: all 0.3s;
+            position: relative;
+            text-transform: uppercase;
+        }
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 30px;
+            background: linear-gradient(135deg, var(--crimson), var(--imperial-red));
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: -1;
+        }
+        .nav-links a:hover::before, .nav-links a.active::before { opacity: 1; }
+        .nav-links a:hover, .nav-links a.active { color: white; transform: translateY(-2px); }
+        .nav-cta {
+            background: linear-gradient(135deg, var(--gold), var(--antique-gold));
+            color: var(--imperial-red) !important;
+            padding: 12px 28px !important;
+            border-radius: 30px;
+            font-weight: 700 !important;
+            box-shadow: 0 4px 15px rgba(212,175,55,0.3);
+        }
+        .nav-cta:hover {
+            transform: translateY(-3px) !important;
+            box-shadow: 0 8px 25px rgba(212,175,55,0.5);
+        }
+
+        /* HERO */
+        .hero {
+            margin-top: 106px;
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(139,0,0,0.85) 0%, rgba(26,26,26,0.9) 50%, rgba(139,0,0,0.85) 100%);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 60px;
+            max-width: 900px;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(212,175,55,0.15);
+            border: 1px solid rgba(212,175,55,0.4);
+            padding: 10px 25px;
+            border-radius: 50px;
+            color: var(--gold);
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 80px;
+            color: var(--gold);
+            margin-bottom: 10px;
+            text-shadow: 0 0 40px rgba(212,175,55,0.3);
+            letter-spacing: 12px;
+            line-height: 1.1;
+            animation: reveal-up 1s ease-out;
+        }
+        .hero-chinese {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 48px;
+            color: rgba(212,175,55,0.6);
+            margin-bottom: 20px;
+            letter-spacing: 20px;
+            animation: reveal-up 1s ease-out 0.2s both;
+        }
+        .hero-divider {
+            width: 150px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 30px auto;
+            position: relative;
+        }
+        .hero-divider::before, .hero-divider::after {
+            content: '◆';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gold);
+            font-size: 12px;
+        }
+        .hero-divider::before { left: -20px; }
+        .hero-divider::after { right: -20px; }
+        .hero-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: var(--pale-gold);
+            font-style: italic;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+            animation: reveal-up 1s ease-out 0.4s both;
+        }
+        .hero-desc {
+            color: rgba(255,255,255,0.7);
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+            animation: reveal-up 1s ease-out 0.6s both;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            animation: reveal-up 1s ease-out 0.8s both;
+        }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, var(--gold), var(--antique-gold));
+            color: var(--imperial-red);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            letter-spacing: 2px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s;
+            box-shadow: 0 10px 30px rgba(212,175,55,0.3);
+            text-transform: uppercase;
+        }
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(212,175,55,0.5);
+        }
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 40px;
+            background: transparent;
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            letter-spacing: 2px;
+            border-radius: 50px;
+            border: 2px solid var(--gold);
+            cursor: pointer;
+            transition: all 0.4s;
+            text-transform: uppercase;
+        }
+        .btn-outline:hover {
+            background: var(--gold);
+            color: var(--imperial-red);
+            transform: translateY(-5px);
+        }
+        .hero-scroll {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--gold);
+            font-size: 24px;
+            animation: float 2s ease-in-out infinite;
+            cursor: pointer;
+        }
+
+        /* SECTION HEADERS */
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        .section-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--crimson), var(--imperial-red));
+            color: white;
+            padding: 8px 25px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 48px;
+            color: var(--imperial-red);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--antique-gold));
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+        .section-subtitle {
+            font-family: 'Playfair Display', serif;
+            color: #888;
+            font-size: 20px;
+            font-style: italic;
+        }
+        .section-chinese {
+            font-family: 'Noto Serif SC', serif;
+            color: rgba(139,0,0,0.15);
+            font-size: 80px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 0;
+            font-weight: 900;
+        }
+
+        /* ABOUT */
+        .about {
+            padding: 120px 40px;
+            position: relative;
+            background: white;
+        }
+        .about-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .about-images { position: relative; }
+        .about-img-main {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+            border: 5px solid var(--gold);
+            position: relative;
+            z-index: 2;
+        }
+        .about-img-float {
+            position: absolute;
+            width: 200px;
+            border-radius: 15px;
+            border: 4px solid white;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            z-index: 3;
+        }
+        .about-img-float.img-1 {
+            top: -30px; right: -30px;
+            animation: float 5s ease-in-out infinite;
+        }
+        .about-img-float.img-2 {
+            bottom: -20px; left: -20px;
+            width: 180px;
+            animation: float 5s ease-in-out infinite 2s;
+        }
+        .about-img-frame {
+            position: absolute;
+            inset: -20px;
+            border: 2px solid var(--gold);
+            border-radius: 25px;
+            z-index: 1;
+            opacity: 0.5;
+        }
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+        .stat-item {
+            text-align: center;
+            padding: 25px;
+            background: linear-gradient(135deg, var(--cream), white);
+            border-radius: 15px;
+            border: 1px solid rgba(212,175,55,0.2);
+            transition: all 0.3s;
+        }
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-color: var(--gold);
+        }
+        .stat-number {
+            font-family: 'Cinzel', serif;
+            font-size: 36px;
+            color: var(--imperial-red);
+            font-weight: 700;
+        }
+        .stat-label {
+            font-size: 13px;
+            color: #888;
+            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .about-text h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 32px;
+            color: var(--imperial-red);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        .about-text p {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+        .about-features {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 20px;
+            background: var(--rice-paper);
+            border-radius: 10px;
+            border-left: 4px solid var(--gold);
+            transition: all 0.3s;
+        }
+        .feature-item:hover {
+            background: var(--cream);
+            transform: translateX(10px);
+        }
+        .feature-item i {
+            width: 40px; height: 40px;
+            background: linear-gradient(135deg, var(--gold), var(--antique-gold));
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: white;
+            font-size: 16px;
+        }
+        .feature-item span { font-weight: 600; color: var(--charcoal); }
+
+        /* MENU */
+        .menu-section {
+            padding: 120px 40px;
+            background: linear-gradient(180deg, var(--rice-paper) 0%, var(--cream) 100%);
+            position: relative;
+        }
+        .menu-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+        .menu-tab {
+            padding: 12px 30px;
+            background: white;
+            border: 2px solid transparent;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            color: #666;
+            transition: all 0.3s;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .menu-tab:hover, .menu-tab.active {
+            background: linear-gradient(135deg, var(--crimson), var(--imperial-red));
+            color: white;
+            border-color: var(--gold);
+            box-shadow: 0 8px 25px rgba(196,30,58,0.3);
+            transform: translateY(-3px);
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 35px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .menu-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            border: 1px solid rgba(212,175,55,0.1);
+        }
+        .menu-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+            border-color: rgba(212,175,55,0.3);
+        }
+        .menu-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--gold), var(--antique-gold), var(--gold));
+            background-size: 200% 100%;
+            animation: shimmer 3s linear infinite;
+        }
+        .menu-image-wrap {
+            position: relative;
+            overflow: hidden;
+            height: 240px;
+        }
+        .menu-image {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+        .menu-card:hover .menu-image { transform: scale(1.15); }
+        .menu-image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+        }
+        .menu-card:hover .menu-image-overlay { opacity: 1; }
+        .menu-overlay-text {
+            color: white;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .menu-badges {
+            position: absolute;
+            top: 15px; right: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 2;
+        }
+        .menu-badge {
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            backdrop-filter: blur(10px);
+        }
+        .badge-bestseller {
+            background: linear-gradient(135deg, var(--crimson), var(--imperial-red));
+            color: white;
+            box-shadow: 0 4px 15px rgba(196,30,58,0.4);
+        }
+        .badge-signature {
+            background: linear-gradient(135deg, var(--gold), var(--antique-gold));
+            color: var(--imperial-red);
+            box-shadow: 0 4px 15px rgba(212,175,55,0.4);
+        }
+        .badge-favorite {
+            background: linear-gradient(135deg, var(--jade), #1a6b3e);
+            color: white;
+        }
+        .menu-content { padding: 28px; }
+        .menu-category {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--crimson);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .menu-category::before {
+            content: '';
+            width: 20px; height: 2px;
+            background: var(--gold);
+        }
+        .menu-name {
+            font-family: 'Cinzel', serif;
+            font-size: 22px;
+            color: var(--ink-black);
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+        .menu-name-chinese {
+            font-family: 'Noto Serif SC', serif;
+            color: #bbb;
+            font-size: 16px;
+            margin-bottom: 12px;
+            letter-spacing: 3px;
+        }
+        .menu-desc {
+            color: #777;
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            min-height: 48px;
+        }
+        .menu-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 18px;
+            border-top: 1px dashed rgba(212,175,55,0.3);
+        }
+        .menu-price {
+            font-family: 'Cinzel', serif;
+            font-size: 22px;
+            color: var(--imperial-red);
+            font-weight: 700;
+        }
+        .menu-price span {
+            font-size: 14px;
+            color: #999;
+            font-weight: 400;
+        }
+        .menu-order-btn {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--antique-gold));
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(212,175,55,0.3);
+        }
+        .menu-order-btn:hover {
+            transform: scale(1.1) rotate(90deg);
+            box-shadow: 0 8px 25px rgba(212,175,55,0.5);
+        }
+
+        /* SIGNATURE */
+        .signature {
+            padding: 120px 40px;
+            background: var(--ink-black);
+            position: relative;
+            overflow: hidden;
+        }
+        .signature::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0 L100 50 L50 100 L0 50 Z' fill='none' stroke='%23D4AF37' stroke-opacity='0.03' stroke-width='1'/%3E%3C/svg%3E");
+            background-size: 80px;
+        }
+        .signature .section-title { color: var(--gold); }
+        .signature .section-subtitle { color: rgba(255,255,255,0.5); }
+        .signature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        .signature-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+            border: 1px solid rgba(212,175,55,0.15);
+            border-radius: 25px;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s;
+            backdrop-filter: blur(10px);
+        }
+        .signature-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+        }
+        .signature-card::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .signature-card:hover::before { opacity: 1; }
+        .signature-number {
+            position: absolute;
+            top: 20px; right: 25px;
+            font-family: 'Cinzel', serif;
+            font-size: 60px;
+            color: rgba(212,175,55,0.1);
+            font-weight: 900;
+            line-height: 1;
+        }
+        .signature-img-wrap {
+            width: 180px; height: 180px;
+            margin: 0 auto 25px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--gold);
+            box-shadow: 0 0 30px rgba(212,175,55,0.2);
+            position: relative;
+        }
+        .signature-img-wrap img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .signature-card:hover .signature-img-wrap img { transform: scale(1.1); }
+        .signature-img-wrap::after {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            border: 2px dashed var(--gold);
+            border-radius: 50%;
+            animation: rotate-slow 20s linear infinite;
+        }
+        .signature-card h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .signature-card .chinese-name {
+            font-family: 'Noto Serif SC', serif;
+            color: rgba(212,175,55,0.4);
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .signature-card p {
+            color: rgba(255,255,255,0.6);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        .signature-price {
+            margin-top: 20px;
+            font-family: 'Cinzel', serif;
+            font-size: 28px;
+            color: var(--gold);
+        }
+
+        /* GALLERY */
+        .gallery {
+            padding: 120px 40px;
+            background: white;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 280px);
+            gap: 15px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .gallery-item img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+        .gallery-item:hover img { transform: scale(1.15); }
+        .gallery-item.large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+        .gallery-item.wide {
+            grid-column: span 2;
+        }
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(139,0,0,0.8), transparent);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+        .gallery-overlay h4 {
+            color: var(--gold);
+            font-family: 'Cinzel', serif;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        .gallery-overlay p {
+            color: rgba(255,255,255,0.8);
+            font-size: 14px;
+        }
+
+        /* LOCATION */
+        .location {
+            padding: 120px 40px;
+            background: linear-gradient(180deg, var(--cream) 0%, var(--rice-paper) 100%);
+            position: relative;
+        }
+        .location-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: start;
+        }
+        .location-info-card {
+            background: white;
+            border-radius: 25px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            border: 1px solid rgba(212,175,55,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        .location-info-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 5px;
+            background: linear-gradient(90deg, var(--gold), var(--antique-gold));
+        }
+        .location-info-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 32px;
+            color: var(--imperial-red);
+            margin-bottom: 10px;
+        }
+        .location-info-card .chinese-title {
+            font-family: 'Noto Serif SC', serif;
+            color: #ddd;
+            font-size: 24px;
+            margin-bottom: 40px;
+        }
+        .info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        .info-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            padding: 20px;
+            background: var(--rice-paper);
+            border-radius: 15px;
+            transition: all 0.3s;
+            border-left: 4px solid transparent;
+        }
+        .info-item:hover {
+            background: var(--cream);
+            border-left-color: var(--gold);
+            transform: translateX(5px);
+        }
+        .info-icon {
+            width: 50px; height: 50px;
+            min-width: 50px;
+            background: linear-gradient(135deg, var(--crimson), var(--imperial-red));
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            color: white;
+            font-size: 20px;
+            box-shadow: 0 8px 20px rgba(196,30,58,0.3);
+        }
+        .info-item div strong {
+            display: block;
+            color: var(--ink-black);
+            margin-bottom: 6px;
+            font-size: 16px;
+        }
+        .info-item div p, .info-item div a {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.6;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .info-item div a:hover { color: var(--crimson); }
+        .location-map-wrap {
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            border: 5px solid var(--gold);
+            position: relative;
+            height: 100%;
+            min-height: 500px;
+        }
+        .location-map-wrap iframe {
+            width: 100%; height: 100%;
+            border: none;
+            min-height: 500px;
+        }
+        .map-badge {
+            position: absolute;
+            bottom: 20px; left: 20px;
+            background: white;
+            padding: 15px 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 10;
+        }
+        .map-badge i {
+            width: 40px; height: 40px;
+            background: var(--crimson);
+            color: white;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .map-badge div strong { display: block; color: var(--ink-black); }
+        .map-badge div span { color: #888; font-size: 13px; }
+
+        /* TESTIMONIALS */
+        .testimonials {
+            padding: 120px 40px;
+            background: var(--imperial-red);
+            position: relative;
+            overflow: hidden;
+        }
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .testimonials .section-title { color: var(--gold); }
+        .testimonials .section-subtitle { color: rgba(255,255,255,0.6); }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        .testimonial-card {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(212,175,55,0.2);
+            border-radius: 20px;
+            padding: 40px 30px;
+            position: relative;
+            transition: all 0.4s;
+        }
+        .testimonial-card:hover {
+            background: rgba(255,255,255,0.12);
+            transform: translateY(-10px);
+            border-color: var(--gold);
+        }
+        .testimonial-quote {
+            font-size: 60px;
+            color: var(--gold);
+            opacity: 0.3;
+            line-height: 1;
+            margin-bottom: -20px;
+        }
+        .testimonial-text {
+            color: rgba(255,255,255,0.9);
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .author-avatar {
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--antique-gold));
+            display: flex; align-items: center; justify-content: center;
+            color: var(--imperial-red);
+            font-weight: 700;
+            font-size: 18px;
+        }
+        .author-info strong {
+            display: block;
+            color: var(--gold);
+            font-size: 16px;
+        }
+        .author-info span {
+            color: rgba(255,255,255,0.5);
+            font-size: 13px;
+        }
+        .testimonial-stars {
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--ink-black);
+            color: white;
+            position: relative;
+            border-top: 3px solid var(--gold);
+        }
+        .footer-top {
+            padding: 80px 40px 40px;
+        }
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 50px;
+        }
+        .footer-brand h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 32px;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+        .footer-brand .chinese {
+            font-family: 'Noto Serif SC', serif;
+            color: rgba(212,175,55,0.3);
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .footer-brand p {
+            color: rgba(255,255,255,0.6);
+            line-height: 1.8;
+            font-size: 15px;
+            margin-bottom: 25px;
+        }
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+        .footer-social a {
+            width: 45px; height: 45px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--gold);
+            font-size: 18px;
+            transition: all 0.3s;
+            border: 1px solid rgba(212,175,55,0.2);
+        }
+        .footer-social a:hover {
+            background: var(--gold);
+            color: var(--imperial-red);
+            transform: translateY(-5px);
+            border-color: var(--gold);
+        }
+        .footer-section h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            font-size: 18px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        .footer-section h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 40px; height: 2px;
+            background: var(--gold);
+        }
+        .footer-section ul { list-style: none; }
+        .footer-section ul li { margin-bottom: 12px; }
+        .footer-section ul li a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 15px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .footer-section ul li a::before {
+            content: '›';
+            color: var(--gold);
+            font-size: 20px;
+            transition: transform 0.3s;
+        }
+        .footer-section ul li a:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+        .footer-section ul li a:hover::before {
+            transform: translateX(5px);
+        }
+        .footer-contact-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+        .footer-contact-item i {
+            color: var(--gold);
+            font-size: 18px;
+            margin-top: 3px;
+        }
+        .footer-contact-item div {
+            color: rgba(255,255,255,0.6);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        .footer-contact-item div strong {
+            display: block;
+            color: white;
+            margin-bottom: 3px;
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding: 30px 40px;
+            text-align: center;
+            color: rgba(255,255,255,0.4);
+            font-size: 14px;
+        }
+        .footer-bottom span { color: var(--gold); }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .about-container, .location-container { grid-template-columns: 1fr; }
+            .signature-grid, .testimonial-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 200px); }
+            .gallery-item.large { grid-column: span 2; grid-row: span 1; }
+            .footer-content { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 42px; letter-spacing: 4px; }
+            .hero-chinese { font-size: 28px; }
+            .section-title { font-size: 32px; }
+            .nav-links { display: none; }
+            .menu-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: 1fr; grid-template-rows: repeat(6, 200px); }
+            .gallery-item.large, .gallery-item.wide { grid-column: span 1; }
+            .footer-content { grid-template-columns: 1fr; }
+            .about-stats { grid-template-columns: 1fr; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <div class="pattern-bg"></div>
+    <div class="chinese-knot knot-1">❋</div>
+    <div class="chinese-knot knot-2">❋</div>
+    <div class="lantern-deco lantern-left">🏮</div>
+    <div class="lantern-deco lantern-right">🏮</div>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="top-bar-left">
+                <span><i class="fas fa-phone-alt"></i> (0274) 513568</span>
+                <span><i class="fas fa-clock"></i> Buka 09.30 - 21.00 WIB</span>
+                <span><i class="fas fa-map-marker-alt"></i> 6937+FM Ngupasan, Yogyakarta</span>
+            </div>
+            <div class="top-bar-right">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo-group">
+                <div class="logo-icon">皇</div>
+                <div class="logo-text">
+                    <h1>MAHKOTA</h1>
+                    <span>皇冠餐厅</span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Beranda</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#signature">Signature</a></li>
+                <li><a href="#gallery">Galeri</a></li>
+                <li><a href="#location">Lokasi</a></li>
+                <li><a href="#location" class="nav-cta"><i class="fas fa-calendar-check"></i> Reservasi</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-crown"></i>
+                Since 1937 — Legenda Chinese Food
+            </div>
+            <h1>MAHKOTA</h1>
+            <div class="hero-chinese">皇冠餐厅</div>
+            <div class="hero-divider"></div>
+            <p class="hero-subtitle">Restoran Tionghoa Autentik</p>
+            <p class="hero-desc">
+                Menyajikan pengalaman kuliner legendaris sejak 1937 dengan resep warisan keluarga 
+                dan bahan-bahan pilihan berkualitas tinggi di jantung Kota Yogyakarta.
+            </p>
+            <div class="hero-buttons">
+                <a href="#menu" class="btn-primary">
+                    <i class="fas fa-utensils"></i> Jelajahi Menu
+                </a>
+                <a href="#location" class="btn-outline">
+                    <i class="fas fa-map-marker-alt"></i> Kunjungi Kami
+                </a>
+            </div>
+        </div>
+        <div class="hero-scroll" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <div class="section-header animate-on-scroll">
+            <div class="section-tag">Sejarah Kami</div>
+            <h2 class="section-title">Tentang Mahkota</h2>
+            <p class="section-subtitle">Warisan Rasa Tionghoa Sejak 1937</p>
+            <div class="section-chinese">关于我们</div>
+        </div>
+        <div class="about-container">
+            <div class="about-images animate-on-scroll">
+                <div class="about-img-frame"></div>
+                <img src="https://media-cdn.tripadvisor.com/media/photo-s/0b/9b/39/dc/mie-kakap-ini-merupakan.jpg" alt="Restoran Mahkota" class="about-img-main">
+                <img src="https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/85d5cc4a-27db-46b0-b77f-930cbf54430c_Go-Biz_20211013_101241.jpeg" alt="Ayam Goreng" class="about-img-float img-1">
+                <img src="https://healthybelly.s3.amazonaws.com/product/media_1656423810_0.webp" alt="Nasi Goreng" class="about-img-float img-2">
+            </div>
+            <div class="about-text animate-on-scroll">
+                <h3>Legenda Kuliner Chinese Food di Yogyakarta</h3>
+                <p>
+                    Restoran Mahkota (d/h Tiong San) adalah salah satu restoran Chinese Food legendaris 
+                    di Yogyakarta yang telah beroperasi sejak tahun <strong>1937</strong>. Berlokasi strategis 
+                    di jantung kota, hanya beberapa langkah dari Malioboro, kami menyajikan pengalaman 
+                    kuliner autentik dengan cita rasa yang telah teruji puluhan tahun.
+                </p>
+                <p>
+                    Dengan resep warisan keluarga dan bahan-bahan pilihan berkualitas tinggi, setiap 
+                    hidangan kami dibuat dengan penuh dedikasi untuk mempertahankan keaslian rasa 
+                    Chinese Food tradisional yang kaya akan rempah dan bumbu.
+                </p>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">87+</div>
+                        <div class="stat-label">Tahun Berdiri</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">150+</div>
+                        <div class="stat-label">Kapasitas Tamu</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">Menu Hidangan</div>
+                    </div>
+                </div>
+                <div class="about-features">
+                    <div class="feature-item">
+                        <i class="fas fa-award"></i>
+                        <span>Resep Warisan Keluarga Sejak 1937</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-fish"></i>
+                        <span>Bahan Segar & Berkualitas Premium</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-users"></i>
+                        <span>Ruang Berkumpul Luas 2 Lantai</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-certificate"></i>
+                        <span>Sertifikasi Halal MUI</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU -->
+    <section class="menu-section" id="menu">
+        <div class="section-header animate-on-scroll">
+            <div class="section-tag">Pilihan Terbaik</div>
+            <h2 class="section-title">Menu Unggulan</h2>
+            <p class="section-subtitle">Hidangan Autentik dengan Cita Rasa Legendaris</p>
+            <div class="section-chinese">精选菜单</div>
+        </div>
+        <div class="menu-tabs animate-on-scroll">
+            <button class="menu-tab active" data-category="all">Semua</button>
+            <button class="menu-tab" data-category="noodle">Mie & Bihun</button>
+            <button class="menu-tab" data-category="rice">Nasi</button>
+            <button class="menu-tab" data-category="chicken">Ayam</button>
+            <button class="menu-tab" data-category="fish">Ikan</button>
+            <button class="menu-tab" data-category="appetizer">Pembuka</button>
+            <button class="menu-tab" data-category="vegetable">Sayuran</button>
+        </div>
+        <div class="menu-grid">
+            <!-- Mie Kakap -->
+            <div class="menu-card animate-on-scroll" data-category="noodle">
+                <div class="menu-badges">
+                    <span class="menu-badge badge-bestseller"><i class="fas fa-fire"></i> Best Seller</span>
+                </div>
+                <div class="menu-image-wrap">
+                    <img src="https://media-cdn.tripadvisor.com/media/photo-s/0b/9b/39/dc/mie-kakap-ini-merupakan.jpg" alt="Mie Kakap" class="menu-image">
+                    <div class="menu-image-overlay">
+                        <span class="menu-overlay-text"><i class="fas fa-star"></i> Menu favorit sejak 1937</span>
+                    </div>
+                </div>
+                <div class="menu-content">
+                    <div class="menu-category">Noodle</div>
+                    <h3 class="menu-name">Mie Kakap Goreng</h3>
+                    <p class="menu-name-chinese">鲷鱼炒面</p>
+                    <p class="menu-desc">Mie kenyal dari adonan ikan kakap dengan tekstur unik, digoreng dengan ayam/babi/campur dan sayuran segar.</p>
+                    <div class="menu-footer">
+                        <div class="menu-price">Rp 49K <span>- 55K</span></div>
+                        <button class="menu-order-btn"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nasi Goreng Yang Chow -->
+            <div class="menu-card animate-on-scroll" data-category="rice">
+                <div class="menu-image-wrap">
+                    <img src="https://healthybelly.s3.amazonaws.com/product/media_1656423810_0.webp" alt="Nasi Goreng Yang Chow" class="menu-image">
+                    <div class="menu-image-overlay">
+                        <span class="menu-overlay-text"><i class="fas fa-heart"></i> Favorit pengunjung</span>
+                    </div>
+                </div>
+                <div class="menu-content">
+                    <div class="menu-category">Rice</div>
+                    <h3 class="menu-name">Nasi Goreng Yang Chow</h3>
+                    <p class="menu-name-chinese">扬州炒饭</p>
+                    <p class="menu-desc">Nasi goreng klasik dengan campuran ayam, udang, telur, dan sayuran dengan bumbu spesial.</p>
+                    <div class="menu-footer">
+                        <div class="menu-price">Rp 45K</div>
+                        <button class="menu-order-btn"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lumpia Hongkong -->
+            <div class="menu-card animate-on-scroll" data-category="appetizer">
+                <div class="menu-badges">
+                    <span class="menu-badge badge-signature"><i class="fas fa-crown"></i> Signature</span>
+                </div>
+                <div class="menu-image-wrap">
+                    <img src="https://img-global.cpcdn.com/recipes/2fcf8c88827b6fb7d8d671f29412a098bf04f281.jpg" alt="Lumpia Hongkong" class="menu-image">
+                    <div class="menu-image-overlay">
+                        <span class="menu-overlay-text"><i class="fas fa-gem"></i> Menu andalan restoran</span>
+                    </div>
+                </div>
+                <div class="menu-content">
+                    <div class="menu-category">Appetizer</div>
+                    <h3 class="menu-name">Lumpia Hongkong</h3>
+                    <p class="menu-name-chinese">香港春卷</p>
+                    <p class="menu-desc">Lumpia goreng renyah dengan isian udang dan sayuran, disajikan dengan saus asam manis.</p>
+                    <div class="menu-footer">
+                        <div class="menu-price">Rp 35K</div>
+                        <button class="menu-order-btn"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ayam Goreng Mahkota -->
+            <div class="menu-card animate-on-scroll" data-category="chicken">
+                <div class="menu-image-wrap">
+                    <img src="https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/85d5cc4a-27db-46b0-b77f-930cbf54430c_Go-Biz_20211013_101241.jpeg" alt="Ayam Goreng Mahkota" class="menu-image">
+                    <div class="menu-image-overlay">
+                        <span class="menu-overlay-text"><i class="fas fa-thumbs-up"></i> Highly recommended</span>
+                    </div>
+                </div>
+                <div class="menu-content">
+                    <div class="menu-category">Chicken</div>
+                    <h3 class="menu-name">Ayam Goreng Mahkota</h3>
+                    <p class="menu-name-chinese">招牌炸鸡</p>
+                    <p class="menu-desc">Ayam tanpa tulang goreng renyah dengan bumbu rahasia restoran, disajikan dengan saus spesial.</p>
+                    <div class="menu-footer">
+                        <div class="menu-price">Rp 85K</div>
+                        <button class="menu-order-btn"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gurame Asam Manis -->
+            <div class="menu-card animate-on-scroll" data-category="fish">
+                <div class="menu-image-wrap">
+                    <img src="https://img-global.cpcdn.com/recipes/772bab3bbf8ff3f3/680x781cq80/sup-bakso-ikan-simpel-chinese-fish-ball-soup-foto-resep-utama.jpg" alt="Gurame Asam Manis" class="menu-image">
+                    <div class="menu-image-overlay">
+                        <span class="menu-overlay-text"><i class="fas fa-fish"></i> Fresh daily</span>
+                    </div>
+                </div>
+                <div class="menu-content">
+                    <div class="menu-category">Fish</div>
+                    <h3 class="menu-name">Gurame Asam Manis</h3>
+                    <p class="menu-name-chinese">糖醋鲫鱼</p>
+                    <p class="menu-desc">Ikan gurame goreng crispy dengan siraman saus asam manis segar, nanas, dan paprika.</p>
+                    <div class="menu-footer">
+                        <div class="menu-price">Rp 189K</div>
+                        <button class="menu-order-btn"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Capcay Goreng -->
+            <div class="menu-card animate-on-scroll" data-category="vegetable">
+                <div class="menu-image-wrap">
+                    <img src="https://awsimages.detik.net.id/community/media/visual/2021/07/23/resep-capcay-goreng-bakso_43.jpeg?w=650&q=90" alt="Capcay Goreng" class="menu-image">
+                    <div class="menu-image-overlay">
+                        <span class="menu-overlay-text"><i class="fas fa-leaf"></i> Sayuran segar</span>
+                    </div>
+                </div>
+                <div class="menu-content">
+                    <div class="menu-category">Vegetable</div>
+                    <h3 class="menu-name">Capcay Goreng</h3>
+                    <p class="menu-name-chinese">炒杂菜</p>
+                    <p class="menu-desc">Campuran sayuran segar dengan bakso ikan, jamur, dan saus tiram yang gurih.</p>
+                    <div class="menu-footer">
+                        <div class="menu-price">Rp 55K</div>
+                        <button class="menu-order-btn"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bakso Kakap -->
+            <div class="menu-card animate-on-scroll" data-category="appetizer">
+                <div class="menu-badges">
+                    <span class="menu-badge badge-favorite"><i class="fas fa-heart"></i> Favorit</span>
+                </div>
+                <div class="menu-image-wrap">
+                    <img src="https://www.dishthefish.com.sg/cdn/shop/articles/Final_yellowtail_fishballs_by_Audra.jpeg?v=1717120816" alt="Bakso Kakap" class="menu-image">
+                    <div class="menu-image-overlay">
+                        <span class="menu-overlay-text"><i class="fas fa-star"></i> Homemade</span>
+                    </div>
+                </div>
+                <div class="menu-content">
+                    <div class="menu-category">Soup</div>
+                    <h3 class="menu-name">Bakso Kakap Kuah</h3>
+                    <p class="menu-name-chinese">鱼丸汤</p>
+                    <p class="menu-desc">Bakso ikan kakap homemade yang kenyal dan lembut dalam kuah kaldu gurih.</p>
+                    <div class="menu-footer">
+                        <div class="menu-price">Rp 45K</div>
+                        <button class="menu-order-btn"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Babi Kecap -->
+            <div class="menu-card animate-on-scroll" data-category="chicken">
+                <div class="menu-image-wrap">
+                    <img src="https://img-global.cpcdn.com/recipes/036569383cd186fc/400x400cq80/photo.jpg" alt="Babi Kecap" class="menu-image">
+                    <div class="menu-image-overlay">
+                        <span class="menu-overlay-text"><i class="fas fa-utensils"></i> Classic</span>
+                    </div>
+                </div>
+                <div class="menu-content">
+                    <div class="menu-category">Pork</div>
+                    <h3 class="menu-name">Babi Kecap</h3>
+                    <p class="menu-name-chinese">酱油猪肉</p>
+                    <p class="menu-desc">Daging babi empuk tumis dengan kecap manis, bawang putih, dan rempah pilihan.</p>
+                    <div class="menu-footer">
+                        <div class="menu-price">Rp 65K</div>
+                        <button class="menu-order-btn"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SIGNATURE -->
+    <section class="signature" id="signature">
+        <div class="section-header animate-on-scroll">
+            <div class="section-tag">Wajib Coba</div>
+            <h2 class="section-title">Menu Signature</h2>
+            <p class="section-subtitle">Hidangan Andalan yang Mendefinisikan Restoran Kami</p>
+            <div class="section-chinese">招牌菜</div>
+        </div>
+        <div class="signature-grid">
+            <div class="signature-card animate-on-scroll">
+                <div class="signature-number">01</div>
+                <div class="signature-img-wrap">
+                    <img src="https://media-cdn.tripadvisor.com/media/photo-s/0b/9b/39/dc/mie-kakap-ini-merupakan.jpg" alt="Mie Kakap">
+                </div>
+                <h3>Mie Kakap Goreng</h3>
+                <p class="chinese-name">鲷鱼炒面</p>
+                <p>Ikon restoran kami sejak 1937. Mie handmade dari daging ikan kakap dengan tekstur unik yang tidak akan Anda temukan di tempat lain.</p>
+                <div class="signature-price">Rp 49K - 55K</div>
+            </div>
+            <div class="signature-card animate-on-scroll">
+                <div class="signature-number">02</div>
+                <div class="signature-img-wrap">
+                    <img src="https://img-global.cpcdn.com/recipes/2fcf8c88827b6fb7d8d671f29412a098bf04f281.jpg" alt="Lumpia Hongkong">
+                </div>
+                <h3>Lumpia Hongkong</h3>
+                <p class="chinese-name">香港春卷</p>
+                <p>Lumpia goreng renyah dengan isian udang segar dan sayuran, disajikan dengan saus asam manis spesial.</p>
+                <div class="signature-price">Rp 35K</div>
+            </div>
+            <div class="signature-card animate-on-scroll">
+                <div class="signature-number">03</div>
+                <div class="signature-img-wrap">
+                    <img src="https://healthybelly.s3.amazonaws.com/product/media_1656423810_0.webp" alt="Nasi Goreng">
+                </div>
+                <h3>Nasi Goreng Ham</h3>
+                <p class="chinese-name">火腿炒饭</p>
+                <p>Nasi goreng dengan potongan ham asap, telur orak-arik, dan sayuran dengan bumbu rahasia keluarga.</p>
+                <div class="signature-price">Rp 45K</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery" id="gallery">
+        <div class="section-header animate-on-scroll">
+            <div class="section-tag">Momen Kami</div>
+            <h2 class="section-title">Galeri Restoran</h2>
+            <p class="section-subtitle">Suasana dan Hidangan yang Menggugah Selera</p>
+            <div class="section-chinese">画廊</div>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item large animate-on-scroll">
+                <img src="https://media-cdn.tripadvisor.com/media/photo-s/0b/9b/39/dc/mie-kakap-ini-merupakan.jpg" alt="Mie Kakap">
+                <div class="gallery-overlay">
+                    <h4>Mie Kakap Goreng</h4>
+                    <p>Menu andalan sejak 1937</p>
+                </div>
+            </div>
+            <div class="gallery-item animate-on-scroll">
+                <img src="https://i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/85d5cc4a-27db-46b0-b77f-930cbf54430c_Go-Biz_20211013_101241.jpeg" alt="Ayam Goreng">
+                <div class="gallery-overlay">
+                    <h4>Ayam Goreng Mahkota</h4>
+                    <p>Signature chicken</p>
+                </div>
+            </div>
+            <div class="gallery-item animate-on-scroll">
+                <img src="https://healthybelly.s3.amazonaws.com/product/media_1656423810_0.webp" alt="Nasi Goreng">
+                <div class="gallery-overlay">
+                    <h4>Nasi Goreng Yang Chow</h4>
+                    <p>Classic fried rice</p>
+                </div>
+            </div>
+            <div class="gallery-item wide animate-on-scroll">
+                <img src="https://awsimages.detik.net.id/community/media/visual/2021/07/23/resep-capcay-goreng-bakso_43.jpeg?w=650&q=90" alt="Capcay">
+                <div class="gallery-overlay">
+                    <h4>Capcay Goreng</h4>
+                    <p>Sayuran segar dengan bakso</p>
+                </div>
+            </div>
+            <div class="gallery-item animate-on-scroll">
+                <img src="https://www.dishthefish.com.sg/cdn/shop/articles/Final_yellowtail_fishballs_by_Audra.jpeg?v=1717120816" alt="Bakso">
+                <div class="gallery-overlay">
+                    <h4>Bakso Kakap</h4>
+                    <p>Homemade fish balls</p>
+                </div>
+            </div>
+            <div class="gallery-item animate-on-scroll">
+                <img src="https://img-global.cpcdn.com/recipes/772bab3bbf8ff3f3/680x781cq80/sup-bakso-ikan-simpel-chinese-fish-ball-soup-foto-resep-utama.jpg" alt="Gurame">
+                <div class="gallery-overlay">
+                    <h4>Gurame Asam Manis</h4>
+                    <p>Sweet & sour carp</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials">
+        <div class="section-header animate-on-scroll">
+            <div class="section-tag">Testimoni</div>
+            <h2 class="section-title">Apa Kata Mereka</h2>
+            <p class="section-subtitle">Pengalaman Kuliner dari Para Pengunjung Setia</p>
+            <div class="section-chinese">客户评价</div>
+        </div>
+        <div class="testimonial-grid">
+            <div class="testimonial-card animate-on-scroll">
+                <div class="testimonial-quote">"</div>
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">Mie Kakap-nya benar-benar legendaris! Teksturnya unik dan tidak ada di tempat lain. Sudah menjadi tradisi keluarga kami makan di sini setiap kali ke Yogyakarta.</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">AR</div>
+                    <div class="author-info">
+                        <strong>Andi Raharjo</strong>
+                        <span>Pengunjung Setia 15 Tahun</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card animate-on-scroll">
+                <div class="testimonial-quote">"</div>
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">Suasana restorannya sangat nyaman dan autentik. Pelayanan ramah, makanannya lezat, dan harganya sangat worth it untuk kualitas yang didapat.</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">SW</div>
+                    <div class="author-info">
+                        <strong>Sari Wijaya</strong>
+                        <span>Food Blogger</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card animate-on-scroll">
+                <div class="testimonial-quote">"</div>
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                </div>
+                <p class="testimonial-text">Lumpia Hongkong-nya the best! Renyah di luar, juicy di dalam. Lokasi strategis dekat Malioboro. Recommended untuk wisatawan yang ingin coba Chinese Food autentik.</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">BP</div>
+                    <div class="author-info">
+                        <strong>Budi Pratama</strong>
+                        <span>Wisatawan dari Jakarta</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION -->
+    <section class="location" id="location">
+        <div class="section-header animate-on-scroll">
+            <div class="section-tag">Kunjungi Kami</div>
+            <h2 class="section-title">Lokasi Restoran</h2>
+            <p class="section-subtitle">Temukan Kami di Jantung Kota Yogyakarta</p>
+            <div class="section-chinese">我们的位置</div>
+        </div>
+        <div class="location-container">
+            <div class="location-info-card animate-on-scroll">
+                <h3>Restoran Mahkota</h3>
+                <p class="chinese-title">皇冠餐厅</p>
+                <div class="info-list">
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <strong>Alamat Lengkap</strong>
+                            <p>Jl. Pajeksan No.50, Ngupasan, Kec. Gondomanan, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55122</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-map-pin"></i></div>
+                        <div>
+                            <strong>Plus Code</strong>
+                            <p>6937+FM Ngupasan, Kota Yogyakarta, Daerah Istimewa Yogyakarta</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-clock"></i></div>
+                        <div>
+                            <strong>Jam Operasional</strong>
+                            <p>Senin - Minggu: 09.30 - 21.00 WIB</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div>
+                            <strong>Telepon / WhatsApp</strong>
+                            <p><a href="tel:+62274513568">(0274) 513568</a></p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-users"></i></div>
+                        <div>
+                            <strong>Kapasitas</strong>
+                            <p>Ruang makan lantai 1 & 2 (Total 150+ tempat duduk)</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-parking"></i></div>
+                        <div>
+                            <strong>Fasilitas</strong>
+                            <p>Area parkir luas, WiFi, AC, Ruang VIP, Mushola</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="location-map-wrap animate-on-scroll">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.974456994695!2d110.3636!3d-7.8013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5787a0e9e5c5%3A0x2e7a5787a0e9e5c5!2sRestoran%20Mahkota!5e0!3m2!1sid!2sid!4v1699999999999!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="map-badge">
+                    <i class="fas fa-store"></i>
+                    <div>
+                        <strong>Restoran Mahkota</strong>
+                        <span>Buka Sekarang</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-top">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h2>MAHKOTA</h2>
+                    <p class="chinese">皇冠餐厅</p>
+                    <p>Legenda Chinese Food di Yogyakarta sejak 1937. Menyajikan cita rasa autentik Tionghoa dengan bahan berkualitas dan pelayanan terbaik.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Menu Populer</h4>
+                    <ul>
+                        <li><a href="#menu">Mie Kakap Goreng</a></li>
+                        <li><a href="#menu">Lumpia Hongkong</a></li>
+                        <li><a href="#menu">Nasi Goreng Yang Chow</a></li>
+                        <li><a href="#menu">Ayam Goreng Mahkota</a></li>
+                        <li><a href="#menu">Gurame Asam Manis</a></li>
+                        <li><a href="#menu">Capcay Goreng</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Tautan Cepat</h4>
+                    <ul>
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#about">Tentang Kami</a></li>
+                        <li><a href="#menu">Menu Lengkap</a></li>
+                        <li><a href="#gallery">Galeri</a></li>
+                        <li><a href="#location">Lokasi</a></li>
+                        <li><a href="#">Karir</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Hubungi Kami</h4>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Alamat</strong>
+                            Jl. Pajeksan No.50, Ngupasan, Yogyakarta 55122
+                        </div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <strong>Telepon</strong>
+                            (0274) 513568
+                        </div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email</strong>
+                            info@restoranmahkota.com
+                        </div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Jam Buka</strong>
+                            Senin - Minggu: 09.30 - 21.00 WIB
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p> 2026 <span>Restoran Mahkota (Tiong San)</span>. All Rights Reserved. | Since 1937 | 皇冠餐厅</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Active nav link
+        const sections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+        // Menu tabs filtering
+        document.querySelectorAll('.menu-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                const category = tab.dataset.category;
+                document.querySelectorAll('.menu-card').forEach(card => {
+                    if (category === 'all' || card.dataset.category === category) {
+                        card.style.display = 'block';
+                        setTimeout(() => card.style.opacity = '1', 10);
+                    } else {
+                        card.style.opacity = '0';
+                        setTimeout(() => card.style.display = 'none', 300);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
